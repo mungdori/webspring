@@ -1,13 +1,63 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<style>
+.user-img {
+	width: 12px;
+	margin-left: 3px;
+	line-height: 10px;
+	vertical-align: -1px;
+}
+
+.dropdown-user {
+	display: contents;
+	position: relative;
+}
+
+.dropdown-user-content {
+	display: none;
+	position: absolute;
+	z-index: 1;
+	border: 1px solid  #d9d9d9;
+	background-color: white;
+	top:20px;
+	width: 74px;
+}
+.dropdown-user:hover .dropdown-user-content {
+  display: block;
+}
+</style>
 <div class="bo">
 	<div class="top-bar">
 		<div class="userinfo">
-			<a href="/user/join">회원가입</a>
-			<div class="bar"></div>
-			<a href="/user/login">로그인</a>
-			<div class="bar"></div>
-			<a href="#">고객센터</a>
+
+
+			<c:choose>
+				<c:when test="${loginUser ==null }">
+					<a href="/user/join">회원가입</a>
+					<div class="bar"></div>
+					<a href="/user/login">로그인</a>
+					<div class="bar"></div>
+					<a href="#">고객센터</a>
+				</c:when>
+				<c:otherwise>
+					<div class="dropdown-user">
+						<a href="#" style="color: black; font-size: 13px;">${loginUser}
+							님</a> <img
+							src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxNCAxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHJlY3QgZmlsbD0iI0ZBNjIyRiIgZmlsbC1ydWxlPSJub256ZXJvIiB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHJ4PSI3Ii8+CiAgICAgICAgPHBhdGggZD0iTTguMzg1IDEwdi0uMDA2TDUuNjQ1IDYuMjFWMTBoLTEuNlY0aDEuNmwyLjc0IDMuNzg4VjRoMS42djZoLTEuNnoiIGZpbGw9IiNGRkYiLz4KICAgIDwvZz4KPC9zdmc+Cg=="
+							class="user-img">
+						<div class="dropdown-user-content">
+							<a href="/user/logout" style="color: black;">로그아웃</a>
+							<a href="#" style="color: black;">로그아웃</a>
+							<a href="#" style="color: black;">로그아웃</a>
+							<a href="#" style="color: black;">로그아웃</a>
+						</div>
+					</div>
+					<div class="bar"></div>
+					<a href="#" style="color: black; font-size: 13px;">고객센터</a>
+				</c:otherwise>
+			</c:choose>
+
 		</div>
 		<div class="top-main">
 			<a href="/"> <img

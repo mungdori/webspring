@@ -42,8 +42,13 @@ public class UserController {
 		HttpSession session = req.getSession();
 		UserDTO loginUser = service.login(userid, userpw);
 		if(loginUser != null) {
-			session.setAttribute("loginUser", loginUser.getUserid());
+			session.setAttribute("loginUser", loginUser.getUsername());
 		}
 		return "home";
+	}
+	@GetMapping("/logout")
+	public String logout(HttpServletRequest req) {
+		req.getSession().invalidate();
+		return "redirect:/";
 	}
 }

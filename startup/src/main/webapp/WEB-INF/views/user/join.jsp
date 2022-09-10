@@ -5,6 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>join</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+	crossorigin="anonymous">
 <link rel="stylesheet" href="/resources/css/main.css" />
 <style>
 .phone-btn {
@@ -38,7 +43,7 @@
 							</div>
 						</div>
 						<div class="ri-btn">
-							<button type="button" class="ajax-btn">
+							<button type="button" class="ajax-btn ajax-btn-id">
 								<span>중복확인</span>
 							</button>
 						</div>
@@ -102,7 +107,7 @@
 							</div>
 						</div>
 						<div class="ri-btn">
-							<button type="button" class="ajax-btn">
+							<button type="button" class="ajax-btn ajax-btn-email">
 								<span>중복확인</span>
 							</button>
 						</div>
@@ -150,8 +155,8 @@
 						<div style="flex: 1 1 0%; box-sizing: border-box;">
 							<div class="join-gender">
 								<label class="lab-gender" for="gender-man"> <input
-									type="radio" id="gender-man" name="gender" value="male" disabled
-									class="gender-join-rd"><span class="cir-join"><div
+									type="radio" id="gender-man" name="gender" value="male"
+									disabled class="gender-join-rd"><span class="cir-join"><div
 											class="in-cir"></div></span><span aria-labelledby="gender-man"
 									class="han-gender">남자</span></label> <label class="lab-gender"
 									for="gender-woman"> <input type="radio" disabled
@@ -159,8 +164,8 @@
 									class="gender-join-rd"><span class="cir-join"><div
 											class="in-cir"></div></span><span aria-labelledby="gender-woman"
 									class="han-gender">여자</span></label> <label class="lab-gender"
-									for="gender-none"> <input type="radio" id="gender-none" disabled
-									name="gender" value="none" class="gender-join-rd"><span
+									for="gender-none"> <input type="radio" id="gender-none"
+									disabled name="gender" value="none" class="gender-join-rd"><span
 									class="cir-join"><div class="in-cir"></div></span><span
 									aria-labelledby="gender-none" class="han-gender">선택안함</span></label>
 							</div>
@@ -228,6 +233,36 @@
 			</form>
 
 		</div>
+		<!-- Button trigger modal -->
+		<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+			data-bs-target="#exampleModal" style="display: none;" id="my-btn">Launch
+			demo modal</button>
+
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModal" tabindex="-1"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">...</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-bs-dismiss="modal">확인</button>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+			crossorigin="anonymous"></script>
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<script src="/resources/js/find.js"></script>
 </body>
 <script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -292,5 +327,17 @@
 					}
 				}).open();
 	}
+
+	$(".ajax-btn-id").on("click", function(e) {
+		e.preventDefault();
+		let userid = $("[name='userid']").val();
+		findService.checkid({
+			userid : userid
+		}, function(result) {
+			if (result) {
+				document.getElementById('my-btn').click();
+			}
+		})
+	})
 </script>
 </html>

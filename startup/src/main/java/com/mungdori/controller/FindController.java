@@ -22,7 +22,6 @@ public class FindController {
 	public boolean checkid(@RequestBody checkDTO check) {
 		System.out.println(check);
 		boolean checkid =service.checkid(check);
-		
 		System.out.println(checkid);
 		return checkid ? true:false;
 	}

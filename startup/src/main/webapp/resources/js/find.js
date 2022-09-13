@@ -13,7 +13,7 @@ const findService = (function() {
 				}
 			},
 			error : function() {
-
+				console.log("오류입니다.")
 			}
 		})
 	}

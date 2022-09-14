@@ -11,20 +11,16 @@ import com.mungdori.service.checkService;
 
 import lombok.Setter;
 
-
 @RestController
 @RequestMapping("/check/*")
 public class FindController {
 	@Setter(onMethod_ = @Autowired)
 	private checkService service;
-	
-	@PostMapping(value="/id", consumes="application/json")
+
+	@PostMapping(value = "/id", consumes = "application/json")
 	public boolean checkid(@RequestBody checkDTO check) {
-		System.out.println(check);
-		boolean checkid =service.checkid(check);
-		System.out.println(checkid);
-		return checkid ? true:false;
+		boolean checkid = service.checkid(check);
+		return checkid ? true : false;
 	}
-	
-	
+
 }

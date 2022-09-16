@@ -6,5 +6,7 @@ public interface checkService {
 
 	boolean checkid(checkDTO check);
 
+	boolean checkemail(checkDTO check);
+
 	
 }

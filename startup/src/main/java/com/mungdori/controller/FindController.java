@@ -19,8 +19,15 @@ public class FindController {
 
 	@PostMapping(value = "/id", consumes = "application/json")
 	public boolean checkid(@RequestBody checkDTO check) {
+		System.out.println(check);
 		boolean checkid = service.checkid(check);
 		return checkid ? true : false;
 	}
+	@PostMapping(value = "/email", consumes = "application/json")
+	public boolean checkemail(@RequestBody checkDTO check) {
+		boolean checkemail = service.checkemail(check);
+		return checkemail ? true : false;
+	}
+
 
 }

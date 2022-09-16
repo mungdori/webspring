@@ -6,6 +6,8 @@ public interface CheckMapper {
 
 	int checkId(checkDTO check);
 
+	int checkEmail(checkDTO check);
+
 	
 	
 	

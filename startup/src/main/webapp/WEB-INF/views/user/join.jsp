@@ -341,5 +341,17 @@
 			}
 		})
 	})
+	$(".ajax-btn-email").on("click", function(e) {
+		e.preventDefault();
+		let useremail = $("[name='useremail']").val();
+		findService.checkemail({
+			useremail : useremail
+		}, function(result) {
+			if (result) {
+				document.getElementById('my-btn').click();
+			}
+		})
+
+	})
 </script>
 </html>

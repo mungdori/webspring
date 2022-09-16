@@ -8,5 +8,8 @@
 	<select id="checkId" resultType="_int">
 		select count(*) from customer where userid=#{userid}
 	</select>
+	<select id="checkEmail" resultType="_int">
+		select count(*) from customer where useremail=#{useremail}
+	</select>
 	
 </mapper>

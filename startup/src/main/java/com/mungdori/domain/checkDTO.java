@@ -7,5 +7,5 @@ public class checkDTO {
 
 	
 	String userid;
-	String email;
+	String useremail;
 }

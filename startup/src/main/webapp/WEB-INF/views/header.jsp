@@ -48,7 +48,7 @@
 							class="user-img">
 						<div class="dropdown-user-content">
 							<a href="/user/logout" style="color: black;">로그아웃</a>
-							<a href="#" style="color: black;">로그아웃</a>
+							<a href="#" style="color: black;">회원탈퇴</a>
 							<a href="#" style="color: black;">로그아웃</a>
 							<a href="#" style="color: black;">로그아웃</a>
 						</div>

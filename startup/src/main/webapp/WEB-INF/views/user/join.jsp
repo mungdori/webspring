@@ -16,6 +16,15 @@
 	border-color: rgb(221, 221, 221);
 	color: rgb(221, 221, 221);
 }
+
+.change-cir {
+	min-width: 24px;
+	min-height: 24px;
+	display: inline-block;
+	position: relative;
+	border-radius: 50%;
+	background-color: rgb(95, 0, 128);
+}
 </style>
 </head>
 <body>
@@ -154,20 +163,16 @@
 						</div>
 						<div style="flex: 1 1 0%; box-sizing: border-box;">
 							<div class="join-gender">
-								<label class="lab-gender" for="gender-man"> <input
+								<label class="lab-gender gender-one" for="gender-man"> <input
 									type="radio" id="gender-man" name="gender" value="male"
-									disabled class="gender-join-rd"><span class="cir-join"><div
-											class="in-cir"></div></span><span aria-labelledby="gender-man"
-									class="han-gender">남자</span></label> <label class="lab-gender"
-									for="gender-woman"> <input type="radio" disabled
-									id="gender-woman" name="gender" value="woman"
-									class="gender-join-rd"><span class="cir-join"><div
-											class="in-cir"></div></span><span aria-labelledby="gender-woman"
-									class="han-gender">여자</span></label> <label class="lab-gender"
-									for="gender-none"> <input type="radio" id="gender-none"
-									disabled name="gender" value="none" class="gender-join-rd"><span
-									class="cir-join"><div class="in-cir"></div></span><span
-									aria-labelledby="gender-none" class="han-gender">선택안함</span></label>
+									disabled class="gender-join-rd"><span class="cir-join"
+									id="cir-men"><div class="in-cir"></div></span><span
+									aria-labelledby="gender-man" class="han-gender">남자</span></label> <label
+									class="lab-gender gender-two" for="gender-woman"> <input
+									type="radio" disabled id="gender-woman" name="gender"
+									value="woman" class="gender-join-rd"><span
+									class="cir-join" id="cir-woman"><div class="in-cir"></div></span><span
+									aria-labelledby="gender-woman" class="han-gender">여자</span></label>
 							</div>
 						</div>
 						<div class="no-show-join"></div>
@@ -352,6 +357,37 @@
 			}
 		})
 
+	})
+
+	$(".gender-one").on("click", function(event) {
+		let gender_man = document.getElementById("cir-men");
+		gender_man.classList.add('change-cir');
+		gender_man.classList.remove('cir-join');
+		let gender_woman = document.getElementById("cir-woman");
+		if (gender_woman.classList.contains('cir-join')) {
+			return
+
+		} else {
+			gender_woman.classList.remove('change-cir');
+			gender_woman.classList.add('cir-join');
+
+		}
+
+	})
+	$(".gender-two").on("click", function(event) {
+		let gender_woman = document.getElementById("cir-woman");
+		gender_woman.classList.add('change-cir');
+		gender_woman.classList.remove('cir-join');
+
+		let gender_man = document.getElementById("cir-men");
+
+		if (gender_man.classList.contains('cir-join')) {
+			return
+
+		} else {
+			gender_man.classList.remove('change-cir');
+			gender_man.classList.add('cir-join');
+		}
 	})
 </script>
 </html>

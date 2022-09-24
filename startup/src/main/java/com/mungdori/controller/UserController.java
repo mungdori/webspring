@@ -51,4 +51,9 @@ public class UserController {
 		req.getSession().invalidate();
 		return "redirect:/";
 	}
+	
+	@GetMapping("/info")
+	public String info() {
+		return "info";
+	}
 }
